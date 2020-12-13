@@ -1,0 +1,25 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Lato', sans-serif;
+}
+
+button {
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    background-color: rgb(4, 49, 80);
+    font-family: 'Montserrat', sans-serif;
+    border: none;
+    padding: 5px;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+p {
+    font-size: 20px;
+}
+
+

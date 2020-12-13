@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+  
+    <link rel="stylesheet" href="styles.css">
+
+    <title>3D Maze (WebGL/JS)</title>
+  </head>
+  <body onload="main()">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+    </style>
+    <div class="canvas">
+      <canvas id="webgl" width="1000" height="1000">
+      Please use a browser that supports "canvas"
+      </canvas>
+    </div>
+  
+    <h1>THE MAZE</h1>
+    <p>Disclaimer! No collision detection! Stay on path! No Cheating!</p>
+    <p id="numdot"> XXX </p>
+    <br>
+
+    <div class="btn-group">
+      Normals:
+      <button type="button" id="normalOn">Normal On</button>
+      <button type="button" id="normalOff">Normal Off</button>
+      <br>
+      Light X <input type="range" min="-50" max="500" value="0" class="slider" id="lightSlideX">
+      Light Y <input type="range" min="-400" max="500" value="0" class="slider" id="lightSlideY">
+      Light Z <input type="range" min="-1500" max="500" value="500" class="slider" id="lightSlideZ">
+      <br>
+      Light:
+      <button type="button" id="lightOn">On</button>
+      <button type="button" id="lightOff">Off</button>
+      <br>
+      Spotlight:
+      <button type="button" id="spotlightOn">On</button>
+      <button type="button" id="spotlightOff">Off</button>
+      <br>
+        Camera Angle <input type="range" min="0" max="360" value="5" class="slider" id="angleSlide">
+      <br>
+    </div>
+
+    <br>
+    <h2>HOW TO PLAY</h2>
+    <h3>
+    Walk through the maze and then answer these questions. Get the answers right to win!:)
+    Also, click Full Animation to see the animal move! (when you find it hehe)
+    <br>
+    Full Animation:
+    <button type="button" id="animationOnButton">ON</button>
+    <button type="button" id="animationOffButton">OFF</button>
+    <h3> 
+    <p id="background">
+    Question 1: What 2 animals is the creature in the maze a combination of?
+    <br>
+    <button class="button1" onclick="myFunction()">Chicken/Dog</button>
+    <button class="button2" onclick="myFunction()">Koala/Fish</button>
+    <button class="button3" onclick="myFunction()">Elephant/Platypus</button>
+    <button class="button4" onclick="myFunction()">Cheetah/Horse</button>
+    <p id="demo"></p>
+    </p>
+    <p id="background1">
+    Question 2: How tall do you think is the tallest pillar in the maze? 
+    <br>
+    (Tip: You can see it from the beginning of the maze)
+    <br>
+    <button class="button5" onclick="myFunction()">6 cubes</button>
+    <button class="button6" onclick="myFunction()">4 cubes</button>
+    <button class="button7" onclick="myFunction()">20 cubes</button>
+    <button class="button8" onclick="myFunction()">45 cubes</button>
+    <p id="demo1"></p>
+    </p>
+
+    <button onClick="window.location.reload();">Play Again!</button>
+
+    <script>
+      function myFunction() {
+        document.querySelector(".button1").onclick = function() {
+          document.getElementById("demo").innerHTML = "Wrong. Try Again.";
+          document.getElementById("background").style.backgroundColor = "red";
+        }
+        document.querySelector(".button2").onclick = function() {
+          document.getElementById("demo").innerHTML = "Wrong. Try Again.";
+          document.getElementById("background").style.backgroundColor = "red";
+        }
+        document.querySelector(".button3").onclick = function() {
+          document.getElementById("demo").innerHTML = "Correct! One more question.";
+          document.getElementById("background").style.backgroundColor = "green";
+        }
+        document.querySelector(".button4").onclick = function() {
+          document.getElementById("demo").innerHTML = "Wrong. Try Again.";
+          document.getElementById("background").style.backgroundColor = "red";
+        }
+        
+      
+        document.querySelector(".button5").onclick = function() {
+          document.getElementById("demo1").innerHTML = "Correct! You win:)";
+          document.getElementById("background1").style.backgroundColor = "green";
+        }
+        document.querySelector(".button6").onclick = function() {
+          document.getElementById("demo1").innerHTML = "Wrong. Try Again.";
+          document.getElementById("background1").style.backgroundColor = "red";
+        }
+        document.querySelector(".button7").onclick = function() {
+          document.getElementById("demo1").innerHTML = "Wrong. Try Again.";
+          document.getElementById("background1").style.backgroundColor = "red";
+        }
+        document.querySelector(".button8").onclick = function() {
+          document.getElementById("demo1").innerHTML = "Wrong. Try Again.";
+          document.getElementById("background1").style.backgroundColor = "red";
+        }
+      }
+
+    </script>
+    <script src="lib/webgl-utils.js"></script>
+    <script src="lib/webgl-debug.js"></script>
+    <script src="lib/cuon-utils.js"></script>
+    <script src="lib/cuon-matrix-cse160.js"></script>
+    <script src="maze.js"></script>
+    <script src="Sphere.js"></script>
+    <script src="Triangle.js"></script>
+    <script src="Camera.js"></script>
+    <script src="Cube.js"></script>
+  </body>
+</html>
